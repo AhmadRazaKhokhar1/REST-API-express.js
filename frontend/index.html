@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <title>Fullstack MERN</title>
+</head>
+
+<header>
+  <nav>
+    
+
+      <div class="left">
+        <a href="index.html" class="long">
+          School Data
+        </a>
+      </div>
+    
+
+
+    <div class="center">
+      <menu>
+        <ul>
+          <a href="index.html"><li>Home</li></a>
+          <a href="#"><li>About</li></a>
+          <a href="#"><li>Contact</li></a>
+        </ul>
+      </menu>
+    </div>
+
+    <div class="right">
+      <button class="show" onclick="showStudents()" title="Show Previously Registered Users">
+        Show Registered Students
+      </button>
+    </div>
+
+  </nav>
+</header>
+
+
+<body>
+
+<form onsubmit="addIt(); return false;" class="form">
+  <h1>Add Student</h1>
+<input class="inpTxt" type="text" id="name" required placeholder="Full Name">
+<input class="inpTxt" type="text" id="father" required placeholder="Father Name">
+<input class="inpTxt" type="text" id="classes" required placeholder="Class">
+<select class="inpTxt" name="Major" id="major" required>
+  <option value="Arts" selected>
+    Arts
+  </option>
+  <option value="Science">
+    Science
+  </option>
+  <option value="Computer Science">
+    Computer Science
+  </option>
+  <option value="Biology">
+    Biology
+  </option>
+  <option value="Junior Class">
+    Junior Class
+  </option>
+</select>
+
+<input class="inpTxt" type="tel" id="phone" required placeholder="Phone Number" required>
+
+
+<input type="submit" value="Add it" title="Add Data" id="add">
+</form>
+
+
+<!-- output from backend here  -->
+  <div id="ms"></div>
+
+<div class="rightNavigation">
+  <div class="box blue">
+<a href="#" style=" color: white; border: none; outline: none;  background: transparent;  overflow:visible; display: flex; justify-content: left; align-items: start;">
+ 
+    <img src="./images/fb.svg" alt="Ahmad Raza Khokhar" title="Facebook Ahmad Raza Khokhar" class="logo blue">
+    <span class="text blue">Facebook</span>  
+   </a>
+  </div>
+  <div class="box pink">
+<a href="#" style=" color: white; border: none; outline: none;  background: transparent; width: auto; overflow:visible; display: flex; justify-content: left; align-items: start;">
+ 
+    <img src="./images/ins.svg" alt="Ahmad Raza Khokhar" title="Facebook Ahmad Raza Khokhar" class="logo pink">
+    <span class="text pink">Instagram</span>  
+   </a>
+  </div>
+  <div class="box black">
+<a href="#" style=" color: white; border: none; outline: none;  background: transparent; width: auto;  overflow:visible; display: flex; justify-content: left; align-items: start;">
+ 
+    <img src="./images/git.svg" alt="Ahmad Raza Khokhar" title="Facebook Ahmad Raza Khokhar" class="logo black">
+    <span class="text black">Github</span>  
+   </a>
+  </div>
+  <div class="box violet">
+<a href="#" style=" color: white; border: none; outline: none;  background: transparent; width: auto;  overflow:visible; display: flex; justify-content: left; align-items: start;">
+ 
+    <img src="./images/lin.svg" alt="Ahmad Raza Khokhar" title="Facebook Ahmad Raza Khokhar" class="logo violet">
+    <span class="text violet">LinkedIn</span>  
+   </a>
+  </div>
+  <div class="box grey">
+<a href="#" style=" color: white; border: none; outline: none;  background: transparent; width: auto;  overflow:visible; display: flex; justify-content: left; align-items: start;">
+ 
+    <img src="./images/yt.svg " alt="Ahmad Raza Khokhar" title="Facebook Ahmad Raza Khokhar" class="logo grey">
+    <span class="text grey">Youtube</span>  
+   </a>
+  </div>
+</div>
+
+
+
+<script>
+    const addIt = async ()=>{
+        const name = document.getElementById('name').value;
+        const classes = document.getElementById('classes').value;
+        const father = document.getElementById('father').value;
+        const major = document.getElementById('major').value;
+        const phone = document.getElementById('phone').value;
+          
+      try{
+       const response = await axios.post('http://localhost:218/users', {
+            name:name,
+            classes: classes,
+            father:father,
+            major:major,
+            phone:phone,
+        });
+        console.log(response)
+        
+      document.getElementById('name').value = '';
+      document.getElementById('classes').value = '';
+      document.getElementById('father').value = '';
+      document.getElementById('major').value = '';
+      document.getElementById('phone').value = '';
+      }
+   catch(error){
+        console.log(`This error is axios frontend ERROR:${error}`)
+    };
+  };
+
+
+  //show users
+const showStudents = async() => {
+
+  try{
+        const getResponse = await axios.get('http://localhost:218/usersHere')
+        console.log(getResponse.data)
+      
+         const ARR = (getResponse.data)
+          ARR.forEach((e)=>{
+            ARR.map(eachUser=>{
+                 
+              document.getElementById('ms').innerHTML +=
+           `
+           <hr classs='tp'>
+           <div class='stack'>
+              
+              <h2>Student</h2>
+                <div class='line'>
+                    <b class='bold'>Name:</b> <p class='output'>
+                       ${eachUser.name} 
+                     </p>
+                </div>
+                <div class='line'>
+                    <b class='bold'>Class:</b> <p class='output'>
+                       ${eachUser.classes} 
+                     </p>
+                </div>
+                <div class='line'>
+                    <b class='bold'>Father:</b> <p class='output
+                    '> ${eachUser.father} 
+                     </p>
+                </div>
+                <div class='line'>
+                    <b class='bold'>Major Subject:</b> <p class='output'> 
+                      ${eachUser.major} 
+                     </p>
+                </div>
+                <div class='line'>
+                    <b class='bold'>Phone:</b> <p class='output'> 
+                      ${eachUser.phone} 
+                     </p>
+                </div>
+
+            </div>
+          <br>
+           `
+
+            })
+         });
+          
+    }
+    catch(error){
+     console.log(`This error is axios frontend ERROR: ${error} GET Method!`);
+    }
+}
+</script>
+
+
+<div class="sponsor">
+  <video src="./images/ahmadrazakhokhar.mp4" autoplay loop class="Ahmad">
+  <h1>
+    Ahmad Raza Khokhar 
+  </h1>
+  <h3>
+    MERN Stack Developer
+  </h3>
+</div>
+
+<footer>
+  <div class="one">
+     <ul class="ft">
+      <li class="liFt"><img src="./images/fb.svg" alt="Ahmad Raza Khokhar" class="logo">Facebook</li>
+      <li class="liFt"><img src="./images/ins.svg" alt="Ahmad Raza Khokhar" class="logo">Instagram</li>
+      <li class="liFt"><img src="./images/git.svg" alt="Ahmad Raza Khokhar" class="logo">Github</li>
+      <li class="liFt"><img src="./images/yt.svg" alt="Ahmad Raza Khokhar" class="logo">Youtube</li>
+      <li class="liFt"><img src="./images/lin.svg" alt="Ahmad Raza Khokhar" class="logo">LinkedIn</li>
+     </ul>
+  </div>
+  <div class="two">
+     <ul class="ft">
+      <li class="liFt">Facebook</li>
+      <li class="liFt">Facebook</li>
+      <li class="liFt">Facebook</li>
+      <li class="liFt">Facebook</li>
+      <li class="liFt">Facebook</li>
+     </ul>
+  </div>
+  <div class="three">
+      <ul class="ft">
+        <li class="liFt">Facebook</li>
+        <li class="liFt">Facebook</li>
+        <li class="liFt">Facebook</li>
+        <li class="liFt">Facebook</li>
+        <li class="liFt">Facebook</li>
+      </ul>   
+  </div>
+</footer>
+
+</body>
+</html>

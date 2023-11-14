@@ -1,0 +1,246 @@
+@media only screen and (max-width: 767px) {
+    header{
+        padding: 0px;
+        background: rgb(0, 0, 0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 25px grey;
+        position: fixed !important;
+        margin-top: 38px;
+        z-index: 2;
+        width: 100vw;
+    }
+    .left{
+       
+        background: transparent;
+        display: flex;
+        width: 12vw;
+        justify-content: center;
+        align-items: center;
+        margin-left: -5px;
+    }
+    a{
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+    }
+    .long{
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+        width: 30vw;
+        display: flex;
+    }
+    .show{
+        background: blueviolet;
+        outline: none;
+        border: none;
+        border-radius: 7px;
+        padding: 5px;
+        width: 35vw;
+        height: 5vh;
+        font-size: xx-small;
+        color: white;
+        transition: .5s ease-in-out;
+    }
+   .right{
+    width: 35vw;
+   }
+    .handleIt{
+        height: auto;
+        overflow-y: auto;
+        width: 78vw;
+        position: absolute;
+        margin-left: .5px;
+        margin-top: 2100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .stack{
+        display: flex;
+        margin-top: 10px;
+       flex-direction: column;
+       width: 70vw;
+       border-radius: 7px;
+       padding: 15px;
+       box-shadow: 0px 0px 10px grey;
+       margin-top: 50px;
+       font-size: 12px;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        border-radius: 7px;
+        box-shadow: 0px 0px 25px grey;
+        padding: 15px;
+        margin: 5px;
+        position: absolute;
+        margin-top: 400px;
+        margin-right: 5px;
+        height: 40vh;
+        width: auto;
+        font-size: 12px;
+        z-index: 1;
+    }
+    .inpTxt{
+        width: 65vw;
+        padding: 5px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 7px;
+        box-sizing: border-box;
+        display: flexbox;
+        height: 5vh;
+        box-shadow: 0px 0px 5px grey;
+        outline: none;
+    
+    }
+    h1, h2{
+        font-size: small;
+    }
+    .rightNavigation{
+        display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
+   .form{
+     height: 60vh;
+     padding: 5px;
+}
+header{
+    height: 15vh;
+}
+.show{
+    width: 35vw;
+    height: 8vh;
+}
+.right{
+    width: 36vw;
+    height: 9vh;
+}
+.rightNavigation{
+    display: none;
+}
+  }
+/* iphone 6/7/8 */
+  @media only screen  and (min-device-width: 360px) and (max-device-width: 140px) {
+header{
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    margin-left: -0px;
+}
+nav{
+    width: 95vw;
+    padding: 10px;
+}
+.show{
+    width: 30vw;
+}
+.right{
+    width: 25vw;
+}
+
+#add{
+    width: 50vw;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px grey;
+    background: greenyellow;
+    color: white;
+    font-weight: 500;
+}
+.rightNavigation{
+    display: none;
+}
+  }
+
+
+  /* Iphone: 12/13/14/15 pro max  */
+
+  @media only screen  and (min-device-width: 414px) and (max-device-width:1200px){
+    header{
+        margin-top: 50px;
+    }
+    .rightNavigation{
+        display: none;
+    }
+    .show{
+        width: 20vw;
+        height: 4vh;
+    }
+    .right{
+        width: 25vw;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        border-radius: 7px;
+        box-shadow: 0px 0px 25px grey;
+        padding: 15px;
+        margin: 5px;
+        position: absolute;
+        margin-top: 510px;
+        margin-right: 5px;
+        height: 40vh;
+        width: auto;
+        font-size: 12px;
+        z-index: 1;
+    }
+    .handleIt{
+        height: auto;
+        overflow-y: auto;
+        width: 78vw;
+        position: absolute;
+        margin-left: .5px;
+        margin-top: 2300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+  @media only screen and (min-device-width: 390px) and (max-device-width: 1284px)  {
+    .form{
+        display: flex;
+        flex-direction: column;
+        border-radius: 7px;
+        box-shadow: 0px 0px 25px grey;
+        padding: 10px;
+        margin: 5px;
+        position: absolute;
+        margin-top: 450px;
+        margin-right: 5px;
+        height: auto;
+        width: auto;
+        font-size: 12px;
+        z-index: 1;
+    }
+    .rightNavigation{
+        display: none;
+    }
+    h1{
+        font-size: 14px;
+    }
+    .handleIt{
+        height: auto;
+        overflow-y: auto;
+        width: 78vw;
+        position: absolute;
+        margin-left: .5px;
+        margin-top: 2300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
